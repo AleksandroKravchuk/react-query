@@ -7,10 +7,9 @@ export const App = () => {
     <>
       <Header />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/" element={<MyCountry />} />
+        <Route path="/" element={<Home />} />
 
-        <Route path="/country" element={<Home />} />
+        <Route path="/country" element={<Country />} />
       </Routes>
     </>
   );

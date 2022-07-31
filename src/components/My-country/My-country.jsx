@@ -1,46 +1,43 @@
 // import PropTypes from 'prop-types';
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 // import { ReactQueryDevtools } from 'react-query/devtools';
 // import TypeScript from 'typescript';
 // import React from 'react';
 // import { useState } from 'react';
 import fetchCountry from 'service/my-fetch';
+import { GridItem, Grid } from 'components';
+import { Image } from 'components';
+import Ukraine from '../../images/Ukraine.jpg';
+import England from '../../images/England.jpg';
+import Germany from '../../images/Germany.jpg';
+import America from '../../images/America.jpg';
 import { getCountries } from 'service/country-service';
 // const queryClient = new QueryClient();
-
+const name = Ukraine || England || Germany || America;
 export default function MyCountry() {
-  const { data, error, isLoading } = useQuery(
-    ['todos'],
-    fetchCountry,
-    // async () => {
-    // const response = await fetch('http://localhost:3000/contries');
-
-    // if (!response.ok) {
-    //   throw new Error('Что-то пошло не так');
-    // }
-
-    // return await response.json();
-    // }
-  );
+  const { data, error, isLoading } = useQuery(['todos'], fetchCountry);
   console.log(data);
   return (
     <>
       {isLoading && <span>Loading...</span>}
       {error && <p>elements no found</p>}
       {data && (
-        <ul>
+        <Grid>
           {data.map(country => (
-            <li key={country.id}>
+            <GridItem key={country.id}>
               <h3>{country.title}</h3>
               <p>{country.population}</p>
-              <img src={country.img} alt="foto cantry"></img>
-            </li>
+
+              <Image
+                src={country.flag}
+                width={294}
+                height={200}
+                alt="foto cantry"
+              />
+              <p>{country.image}</p>
+            </GridItem>
           ))}
-        </ul>
+        </Grid>
       )}
     </>
   );

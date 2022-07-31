@@ -4,32 +4,31 @@
       "id": "1",
       "title": "Ukraine",
       "population": "124524623",
-      "img": "/src/IMG/Ukraine.jpg"
+      "image": "/public/Ukraine.jpg"
     },
     {
       "id": "2",
       "title": "America",
       "population": "7342444232",
-      "img": "/src/IMG/America.jpg"
+      "image": "/public/America.jpg"
     },
     {
       "id": "3",
       "title": "Germany",
       "population": "3563644",
-      "img": "/src/IMG/Germany.jpg"
+      "image": "/public/Germany.jpg"
     },
     {
       "id": "4",
       "title": "England",
       "population": "945244",
-      "img": "/src/IMG/England.jpg"
+      "image": "/src/images/England.jpg"
     },
     {
       "id": "5",
       "title": "Poland",
       "population": "945244",
-      "img": "/src/IMG/England.jpg"
+      "image": "/src/images/Germany.jpg"
     }
-  ],
-  "headers": { "Content-Type": "aplication/json" }
+  ]
 }

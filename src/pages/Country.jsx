@@ -1,10 +1,11 @@
 import { Section, Container, CountryInfo, Loader } from 'components';
+import MyCountrySecond from 'components/My-country/MyCountrySecond';
 
 export const Country = () => {
   return (
     <Section>
       <Container>
-        <h2>Country</h2>
+        <MyCountrySecond />
       </Container>
     </Section>
   );
