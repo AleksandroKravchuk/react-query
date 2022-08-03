@@ -7,7 +7,7 @@ import { Loader } from 'components';
 
 export default function MyCountrySecond() {
   const { data, error, isLoading } = useQuery(['todos'], getCountries);
-  console.log(data);
+
   return (
     <>
       {isLoading && <Loader />}

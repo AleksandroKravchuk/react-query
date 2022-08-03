@@ -1,23 +1,14 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const API_URL = 'http://localhost:3000';
-// axios.defaults.baseURL = API_URL;
+// axios.defaults.baseURL = 'http://localhost:3000';
 
-//  const fetchCountry = async()=> {
-//    const {data} = await axios.get('/contries');
-//   if (!data) {
-//       throw new Error('Что-то пошло не так');
-//     }
-//     return await data;
-         
-    
-// }
-
-async function fetchCountry ()  {
-    const response = await fetch('http://localhost:3000/contries');
-    if (!response.ok) {
-      throw new Error('Что-то пошло не так');
-    }
-    return await response.json();
+const fetchCountry = async () => {
+  try {
+    const { data } = await axios.get('http://localhost:3000/contries');
+    return data;
+  } catch {
+    console.log('Что-то пошло не так');
+  }
 };
+
 export default fetchCountry;

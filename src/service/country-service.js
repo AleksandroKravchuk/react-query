@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { transformCountriesData, transformCountryData } from 'helpers';
 
-axios.defaults.baseURL = 'https://restcountries.com/v3.1';
+// axios.defaults.baseURL = 'https://restcountries.com/v3.1';
 
 export const getCountries = async () => {
-  const { data } = await axios.get('/region/europe');
+  const { data } = await axios.get(
+    'https://restcountries.com/v3.1/region/europe',
+  );
   const countries = transformCountriesData(data);
 
   return countries;

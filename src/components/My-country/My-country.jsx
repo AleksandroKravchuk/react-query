@@ -5,32 +5,36 @@ import fetchCountry from 'service/my-fetch';
 import { GridItem, Grid } from 'components';
 import { Image } from 'components';
 import { Loader } from 'components';
+import AddCountry from './AddCountry';
 import Ukraine from '../../images/Ukraine.jpg';
 
 export default function MyCountry() {
   const { data, error, isLoading } = useQuery(['myCountry'], fetchCountry);
-  console.log(data);
+
   return (
     <>
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       {error && <p>elements no found</p>}
       {data && (
-        <Grid>
-          {data.map(country => (
-            <GridItem key={country.id}>
-              <h3>{country.title}</h3>
-              <p>{country.population}</p>
+        <div>
+          <Grid>
+            {data.map(country => (
+              <GridItem key={country.id}>
+                <h3>{country.title}</h3>
+                <p>{country.population}</p>
 
-              <Image
-                src={country.image}
-                width={294}
-                height={200}
-                alt="foto cantry"
-              />
-              <p>{country.image}</p>
-            </GridItem>
-          ))}
-        </Grid>
+                <Image
+                  src={country.image}
+                  width={294}
+                  height={200}
+                  alt="foto cantry"
+                />
+                <p>{country.image}</p>
+              </GridItem>
+            ))}
+          </Grid>
+          <AddCountry />
+        </div>
       )}
     </>
   );
