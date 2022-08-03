@@ -1,25 +1,18 @@
-// import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
-// import { ReactQueryDevtools } from 'react-query/devtools';
-// import TypeScript from 'typescript';
-// import React from 'react';
+
 // import { useState } from 'react';
 import fetchCountry from 'service/my-fetch';
 import { GridItem, Grid } from 'components';
 import { Image } from 'components';
+import { Loader } from 'components';
 import Ukraine from '../../images/Ukraine.jpg';
-import England from '../../images/England.jpg';
-import Germany from '../../images/Germany.jpg';
-import America from '../../images/America.jpg';
-import { getCountries } from 'service/country-service';
-// const queryClient = new QueryClient();
-const name = Ukraine || England || Germany || America;
+
 export default function MyCountry() {
-  const { data, error, isLoading } = useQuery(['todos'], fetchCountry);
+  const { data, error, isLoading } = useQuery(['myCountry'], fetchCountry);
   console.log(data);
   return (
     <>
-      {isLoading && <span>Loading...</span>}
+      {isLoading && <Loader/>}
       {error && <p>elements no found</p>}
       {data && (
         <Grid>
@@ -29,7 +22,7 @@ export default function MyCountry() {
               <p>{country.population}</p>
 
               <Image
-                src={country.flag}
+                src={country.image}
                 width={294}
                 height={200}
                 alt="foto cantry"
