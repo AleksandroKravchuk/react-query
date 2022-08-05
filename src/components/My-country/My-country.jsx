@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-
+import { useState, useEffect } from 'react';
 // import { useState } from 'react';
 import fetchCountry from 'service/my-fetch';
 import { GridItem, Grid } from 'components';
@@ -9,7 +9,12 @@ import AddCountry from './AddCountry';
 import Ukraine from '../../images/Ukraine.jpg';
 
 export default function MyCountry() {
+  // const [countries, setCountries] = useState(data);
   const { data, error, isLoading } = useQuery(['myCountry'], fetchCountry);
+
+  // useEffect(() => {
+  //   setCountries(data);
+  // }, [data]);
 
   return (
     <>
